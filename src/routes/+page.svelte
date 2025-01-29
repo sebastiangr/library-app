@@ -1,26 +1,11 @@
-<!-- src/routes/+page.svelte -->
 <script lang="ts">
   import { enhance } from '$app/forms';
+	import { formatDate } from '$lib/utils';
   import type { PageData } from './$types';
   
   export let data: PageData;
 
-  // Función para formatear fechas
-  function formatDate(date: string | null) {
-    if (!date) return 'No disponible';
-    return new Date(date).toLocaleDateString();
-  }
 </script>
-
-<!-- <div class="max-w-4xl mx-auto p-4">
-  <h1 class="text-3xl font-bold mb-8">Gestión de Autores</h1>
-
-  <!-- Formulario mejorado de creación de autor -->
-
-
-  <!-- Lista de autores mejorada -->
-
-<!-- </div>  -->
 
 <div class="mx-auto max-w-6xl grid grid-cols-2 gap-4 items-center">
   <div>
@@ -179,6 +164,14 @@
     <div class="bg-white shadow-md rounded px-8 pt-6 pb-8">
       <h2 class="text-2xl font-bold mb-4">Autores Registrados</h2>
       <div class="divide-y divide-gray-200">
+
+        <!-- 
+          TODO: Implementar paginación
+          TODO: Implementar búsqueda
+          TODO: Implementar ordenamiento
+          TODO: Implementar edición y eliminación de autores    
+        -->
+
         {#each data.authors as author}
           <a 
             href="/authors/{author.id}"

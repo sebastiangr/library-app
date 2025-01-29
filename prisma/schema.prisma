@@ -12,7 +12,8 @@ datasource db {
   provider = "postgresql"
   url      = env("DATABASE_URL")
 }
-
+// TODO: Agregar género del autor
+// TODO: Generar de nuevo la DB
 model Author {
   id              Int       @id @default(autoincrement())
   firstName       String    // Nombre del autor

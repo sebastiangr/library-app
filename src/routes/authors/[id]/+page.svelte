@@ -1,7 +1,9 @@
 <script lang="ts">
+	import { formatDate } from '$lib/utils';
   import type { PageData } from './$types';
   
   export let data: PageData;
+
 </script>
 
 <div class="max-w-4xl mx-auto p-4">
@@ -38,8 +40,8 @@
       </p>
 
       <p class="text-sm text-gray-500">
-        {data.author.birthDate ? data.author.birthDate : 'Fecha de Nacimiento no especificada'} - 
-        {data.author.isAlive ? 'Presente' : data.author.deathDate ? data.author.deathDate : 'Fecha de Fallecimiento no especificada'}
+        {data.author.birthDate ? formatDate(data.author.birthDate) : 'Fecha de Nacimiento no especificada'} - 
+        {data.author.isAlive ? 'Presente' : data.author.deathDate ? formatDate(data.author.deathDate) : 'Fecha de Fallecimiento no especificada'}
       </p>
       
     

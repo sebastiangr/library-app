@@ -19,6 +19,7 @@ model Author {
   firstName       String    // Nombre del autor
   lastName        String    // Apellido del autor
   pseudonym       String?   // Nombre literario o artístico
+  gender          Gender    // Género del autor
   birthDate       DateTime? // Fecha de nacimiento
   deathDate       DateTime? // Fecha de fallecimiento
   isAlive         Boolean?  @default(true) // Indica si el autor vive actualmente
@@ -31,5 +32,13 @@ model Author {
   website         String?   // Sitio web oficial del autor
   imageUrl        String?   // URL de la imagen del autor
   createdAt       DateTime  @default(now())
-  updatedAt       DateTime  @updatedAt
+  updatedAt       DateTime  @updatedAt  
 }
+
+enum Gender {
+  MASCULINE
+  FEMININE
+  NOT_BINARY
+  PREFER_NOT_TO_SAY
+}
+

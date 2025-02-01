@@ -67,6 +67,9 @@
 </script>
 
 
+
+
+
 <div class="mx-auto max-w-6xl grid grid-cols-2 gap-4 items-center">
   <!-- Formulario para ingresar un nuevo autor -->
   <div>

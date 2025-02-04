@@ -66,10 +66,6 @@
   }
 </script>
 
-
-
-
-
 <div class="mx-auto max-w-6xl grid grid-cols-2 gap-4 items-center">
   <!-- Formulario para ingresar un nuevo autor -->
   <div>
@@ -174,14 +170,18 @@
 
       <!-- Información adicional del autor -->
       <div class="mb-4">
-        <label class="block text-gray-700 text-sm font-bold mb-2" for="birthPlace">Lugar de Nacimiento</label>
-        <input
+        <label class="block text-gray-700 text-sm font-bold mb-2" for="birthPlace">País de Nacimiento</label>
+        <!-- <select
           class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
           id="birthPlace"
           name="birthPlace"
-          type="text"
           disabled={isSaving}
-        />
+        >
+          <option value="">Seleccione un país</option>
+          {#each Array.from(data.countries).map(String).sort((a, b) => a.localeCompare(b)) as country}
+            <option>{country}</option>
+          {/each}
+        </select> -->
       </div>
 
       <div class="mb-4">
@@ -237,6 +237,7 @@
     <!-- TODO: Implementar búsqueda -->
     <!-- TODO: Implementar ordenamiento -->
     <!-- TODO: Implementar edición y eliminación de autores -->
+    <!-- TODO: Fix Country list -->
 
     <!-- Lista de autores -->
     <div class="bg-white shadow-md rounded px-8 pt-6 pb-8">
@@ -308,4 +309,5 @@
     </div>
   </div>
 {/if}
+
 

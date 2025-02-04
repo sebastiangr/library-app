@@ -1,26 +1,36 @@
 <script lang="ts">
+	import Sidebar from '$lib/components/layout/Sidebar.svelte';
+	import TopNav from '$lib/components/layout/TopNav.svelte';
 	import '../app.css';
 	let { children } = $props();
+
+
+  // import { $state } from 'svelte';
+  import { Settings, User } from 'lucide-svelte';
+
+  // let sidebarOpen = $state(true);
+
+  // const menuItems = [
+  //   { name: 'Inicio', icon: Home, path: '/' },
+  //   { name: 'Configuraciones', icon: Settings, path: '/settings' },
+  //   { name: 'Perfil', icon: User, path: '/profile' }
+  // ];
 </script>
 
-<nav class="fixed top-0 left-0 right-0 bg-white shadow-md z-50">
-  <div class="max-w-6xl mx-auto px-4 py-2 flex justify-between items-center">
-    <div class="text-lg font-bold">
-      <a href="/" class="text-blue-500 hover:text-blue-700">Library App</a>
-    </div>
-    <div class="flex items-center space-x-4">
-      <a href="/" class="text-gray-700 hover:text-blue-500">Home</a>
-      <a href="/books" class="text-gray-700 hover:text-blue-500">Books</a>
-      <a href="/authors" class="text-gray-700 hover:text-blue-500">Authors</a>   
-      <a href="/settings" class="text-gray-700 hover:text-blue-500">
-        Settings
-      </a>
-    </div>
-  </div>
-</nav>
+<div class="flex h-screen transition-all duration-300">
 
-<div class="pt-16">
-  <!-- Content below the fixed menu -->
+  <!-- Sidebar -->
+  <Sidebar />
+
+  <!-- Main Content -->
+  <div class="flex-1 flex flex-col">
+    <!-- Headbar -->
+    <TopNav />
+    <!-- Page Content -->
+    <main class="flex-1 p-4 overflow-auto">
+      {@render children()}
+    </main>
+  </div>
+
 </div>
 
-{@render children()}

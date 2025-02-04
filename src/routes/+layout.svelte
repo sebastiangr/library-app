@@ -1,20 +1,20 @@
 <script lang="ts">
+  import { darkMode } from '../lib/stores/darkMode';
 	import Sidebar from '$lib/components/layout/Sidebar.svelte';
 	import TopNav from '$lib/components/layout/TopNav.svelte';
 	import '../app.css';
 	let { children } = $props();
 
 
-  // import { $state } from 'svelte';
-  import { Settings, User } from 'lucide-svelte';
-
-  // let sidebarOpen = $state(true);
-
-  // const menuItems = [
-  //   { name: 'Inicio', icon: Home, path: '/' },
-  //   { name: 'Configuraciones', icon: Settings, path: '/settings' },
-  //   { name: 'Perfil', icon: User, path: '/profile' }
-  // ];
+  // Efecto que se ejecuta cuando cambia el modo oscuro
+  // Añade/elimina la clase 'dark' al elemento raíz del documento
+  $effect(() => {
+    if ($darkMode) {      
+      document.documentElement.classList.add('dark');
+    } else {
+      document.documentElement.classList.remove('dark');
+    }
+  });
 </script>
 
 <div class="flex h-screen transition-all duration-300">
@@ -33,4 +33,3 @@
   </div>
 
 </div>
-

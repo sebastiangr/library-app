@@ -1,14 +1,15 @@
 <script lang="ts">
-  import { ArrowLeft, Home, Menu, Settings, User } from 'lucide-svelte';
+	import { popup, type PopupSettings } from '@skeletonlabs/skeleton';
+  import { ArrowLeft, Book, ChartColumnBig, LibraryBig, Menu, Signature } from 'lucide-svelte';
   import { fade } from 'svelte/transition';
 
   let sidebarOpen = $state(true);
 
   const menuItems = [
-    { name: 'Inicio', icon: Home, path: '/' },
-    { name: 'Libros', icon: Settings, path: '/books' },
-    { name: 'Autores', icon: Settings, path: '/authors' },
-    { name: 'Estadísticas', icon: Settings, path: '/stats' },
+    { name: 'Biblioteca', icon: LibraryBig, path: '/' },
+    { name: 'Añadir Libro', icon: Book, path: '/books' },
+    { name: 'Añadir Autor', icon: Signature, path: '/authors' },
+    { name: 'Estadísticas', icon: ChartColumnBig, path: '/stats' },
     // { name: 'Configuraciones', icon: Settings, path: '/settings' },
     // { name: 'Perfil', icon: User, path: '/profile' }
   ];
@@ -24,12 +25,12 @@
   </button>
   <nav>
     {#each menuItems as item}
-      <a href={item.path} class="flex items-center gap-2 p-2 rounded hover:bg-gray-700" style="width: {sidebarOpen ? 'auto' : '40px'};">
+      <a href={item.path} class="flex items-center gap-2 p-2 rounded hover:bg-gray-700" style="width: {sidebarOpen ? 'auto' : '40px'};"> 
         <item.icon size={24} />
         {#if sidebarOpen}
           <span class="w-auto">{item.name}</span>
         {/if}
-      </a>
+      </a>      
     {/each}
   </nav>
 </aside>
